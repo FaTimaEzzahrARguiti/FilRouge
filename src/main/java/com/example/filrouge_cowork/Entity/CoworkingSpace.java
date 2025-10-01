@@ -16,7 +16,7 @@ public class CoworkingSpace {
     private String address;
     private String description;
     private String image;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "admin_id")
     private User admin;
 

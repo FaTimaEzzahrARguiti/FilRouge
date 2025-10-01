@@ -6,11 +6,14 @@ import com.example.filrouge_cowork.Mapper.CoworkingSpaceMapper;
 import com.example.filrouge_cowork.Repository.CoworkingSpaceRepository;
 import com.example.filrouge_cowork.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+@Service
 public class CoworkingSpaceImpl implements CoworkingSpaceService{
 
 
@@ -26,9 +29,10 @@ public class CoworkingSpaceImpl implements CoworkingSpaceService{
         this.userRepository = userRepository;
     }
 
-    public CoworkingSpaceDTO createSpace(CoworkingSpaceDTO coworkingSpaceDTO) {
-        CoworkingSpace coworkingSpace = coworkingSpaceMapper.toEntity(coworkingSpaceDTO);
-        CoworkingSpace saved = coworkingSpaceRepository.save(coworkingSpace);
+
+    public CoworkingSpaceDTO createSpace(CoworkingSpaceDTO coworkingSpaceDTO){
+        CoworkingSpace coworkingSpace= coworkingSpaceMapper.toEntity(coworkingSpaceDTO);
+        CoworkingSpace saved= coworkingSpaceRepository.save(coworkingSpace);
         return coworkingSpaceMapper.toDTO(saved);
     }
 

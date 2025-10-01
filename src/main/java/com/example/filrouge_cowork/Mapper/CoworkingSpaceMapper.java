@@ -3,7 +3,10 @@ package com.example.filrouge_cowork.Mapper;
 import com.example.filrouge_cowork.Dto.CoworkingSpaceDTO;
 import com.example.filrouge_cowork.Entity.CoworkingSpace;
 import com.example.filrouge_cowork.Repository.UserRepository;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class CoworkingSpaceMapper {
     private final UserRepository userRepository;
 
