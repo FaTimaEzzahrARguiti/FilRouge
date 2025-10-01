@@ -1,5 +1,9 @@
 package com.example.filrouge_cowork.Dto;
 
+
+import lombok.Data;
+
+@Data
 public class CoworkingSpaceDTO {
 
     private Long id;

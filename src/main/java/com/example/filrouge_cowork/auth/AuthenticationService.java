@@ -1,7 +1,6 @@
 package com.example.filrouge_cowork.auth;
 
 
-import ch.qos.logback.core.net.server.Client;
 import com.example.filrouge_cowork.Entity.User;
 import com.example.filrouge_cowork.Repository.UserRepository;
 import com.example.filrouge_cowork.config.JwtService;
@@ -12,8 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import static com.example.filrouge_cowork.Enum.Role.ADMIN;
-import static com.example.filrouge_cowork.Enum.Role.CLIENT;
 
 @Service
 @RequiredArgsConstructor
