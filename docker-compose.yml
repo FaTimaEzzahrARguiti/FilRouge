@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  cowork-db:
+    container_name: cowork-container-db
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: cowork
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    networks:
+      - cowork-net
+    volumes:
+      - cowork-vol:/var/lib/mysql
+
+  cowork-app:
+    build:
+      context: .
+    container_name: cowork-container
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://cowork-db:3306/cowork?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - cowork-db
+    networks:
+      - cowork-net
+    ports:
+      - "8091:8091"
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -ucowork -pcowork --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+networks:
+  cowork-net:
+    driver: bridge
+
+volumes:
+  cowork-vol:
