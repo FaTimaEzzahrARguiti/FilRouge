@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/room")
@@ -46,6 +46,11 @@ public class RoomController {
     public RoomDTO getById(@PathVariable Long id){
         return roomService.getRoomById(id);
 
+    }
+
+    @GetMapping("/space/{spaceId}")
+    public List<RoomDTO> getRoomsByCoworkingSpaceId(@PathVariable Long spaceId){
+        return roomService.getRoomsByCoworkingSpaceId(spaceId);
     }
 
 

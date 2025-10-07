@@ -2,6 +2,7 @@ package com.example.filrouge_cowork.Dto;
 
 
 import com.example.filrouge_cowork.Enum.Type;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
